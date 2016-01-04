@@ -168,6 +168,7 @@
           };
 
           $scope.book = function (day) {
+            day.available = false;
             var venId = $stateParams.venueId;
             EventsService.getVenDetails(venId).then(function(details) {
               var venDeets = details.data;
