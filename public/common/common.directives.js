@@ -8,9 +8,10 @@
         templateUrl: 'common/views/navigation.html',
         transclude: true,
         controller: function($scope) {
-          
+
         },
         link: function(scope,element,attr) {
+
 
         }
 
@@ -40,9 +41,12 @@
             $('.sidepanel').addClass('slider');
           }
 
+
         });
 
 
+          // var height = $(window).height()+ 95;
+          // $('.sidepanel').css('height', height);
 
 
         }

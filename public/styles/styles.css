@@ -8,6 +8,12 @@ body {
   body h1, body h5 {
     color: #ae535d; }
 
+form {
+  font-size: 25px; }
+
+.btn {
+  background-color: #cccccc; }
+
 .show {
   visibility: initial; }
 
@@ -20,9 +26,9 @@ body {
     -webkit-transform: scale(1); } }
 
 .slide {
-  -webkit-animation: pop-in .3s;
-  -moz-animation: pop-in .3s;
-  -ms-animation: pop-in .3s; }
+  -webkit-animation: pop-in 0.3s;
+  -moz-animation: pop-in 0.3s;
+  -ms-animation: pop-in 0.3s; }
 
 .yourbands h2 {
   color: white;
@@ -103,8 +109,6 @@ body {
   background-color: white;
   width: 140px;
   height: 1000px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   margin: 0;
   position: absolute;
   box-shadow: 2px 4px 4px black; }
@@ -337,7 +341,6 @@ body {
   margin-top: 10px;
   margin-bottom: 10px; }
   .pic img {
-    border: 4px solid white;
     width: 200px;
     height: 200px;
     box-shadow: 2px 2px 4px black; }
@@ -347,14 +350,14 @@ body {
   height: 150px;
   border-radius: 200px;
   background-size: cover;
-  border: 4px solid white; }
+  border: 2px solid black; }
 
 #skl {
   width: 2%; }
 
 .showcontainer {
   overflow: scroll;
-  height: 500px;
+  height: 600px;
   margin-bottom: 50px; }
 
 .upcomingShow {
@@ -480,9 +483,6 @@ body {
   .tourform h6 {
     display: inline-block; }
 
-.submittour {
-  margin-left: 340px; }
-
 .tourbox {
   opacity: .9;
   border: 1px solid #cccccc;
@@ -505,21 +505,22 @@ body {
   box-shadow: 2px 2px 4px black; }
   .venueBlock .vInfo {
     display: inline-block; }
-  .venueBlock .sglogo {
-    display: inline-block;
-    width: 15%;
-    float: right;
-    margin-top: 50px; }
-    .venueBlock .sglogo img {
-      width: 20%;
-      margin-left: 38px; }
-    .venueBlock .sglogo h6 {
-      font-size: 10px;
-      margin-left: 5px; }
+
+.sglogo {
+  display: block;
+  width: 10%;
+  margin: 10px auto 10px auto; }
+  .sglogo img {
+    width: 35%;
+    margin-left: 38px; }
+  .sglogo h6 {
+    font-size: 12px;
+    margin-left: 8px;
+    color: white; }
 
 .nothaCity {
   width: 200px;
-  margin-left: 550px;
+  margin-left: 540px;
   margin-top: 50px;
   margin-bottom: 30px;
   box-shadow: 2px 2px 4px black; }

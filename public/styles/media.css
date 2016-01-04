@@ -18,6 +18,41 @@
     margin-right: 5%;
     margin-top: 2%; } }
 
+@media (min-width: 1700px) {
+  .detailsbox {
+    margin-left: 196px; }
+    .detailsbox p {
+      font-size: 30px; }
+  .loginbox {
+    width: 80%;
+    font-size: 25px; } }
+
+.submittour {
+  margin-left: 40%;
+  width: 20%; }
+
+.edit {
+  margin-left: 32%; }
+
+.nothaCity {
+  margin-left: 45%; }
+
+.venueBlock h3 {
+  font-size: 40px; }
+
+.venueBlock h5 {
+  font-size: 20px; }
+
+.btn {
+  margin-bottom: 5%;
+  font-size: 20px; }
+
+.sglogo h6 {
+  text-align: center; }
+
+.sglogo a {
+  margin-left: 27px; }
+
 @media (min-width: 1247px) and (max-width: 1337px) {
   .venDeets a {
     margin-left: 0; } }
@@ -98,6 +133,10 @@
   .dayBlock h5 {
     font-size: 15px; } }
 
+@media (max-width: 859px) {
+  #days li {
+    width: 12%; } }
+
 @media (min-width: 800px) and (max-width: 900px) {
   .newuserform select, .newuserform input {
     margin-left: 20px; } }
@@ -105,20 +144,6 @@
 @media (min-width: 780px) and (max-width: 830px) {
   .circle3 {
     margin-bottom: 26px; } }
-
-@media (max-width: 751px) {
-  #Monday {
-    margin-left: 1%; }
-  #Tuesday {
-    margin-left: 28.33%; }
-  #Wednesday {
-    margin-left: 42.58%; }
-  #Thursday {
-    margin-left: 56.7%; }
-  #Friday {
-    margin-left: 71.1%; }
-  #Saturday {
-    margin-left: 85.15%; } }
 
 @media (max-width: 737px) {
   .dayBlock {
@@ -303,3 +328,7 @@
     margin-left: 3px; }
   .loginbox input {
     width: 75%; } }
+
+@media (max-width: 430px) and (max-width: 400px) {
+  .submittour {
+    width: 31%; } }

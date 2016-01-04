@@ -34,6 +34,50 @@
   }
 
 }
+//////////////////////////////////////////////
+@media (min-width:1700px) {
+  .detailsbox {
+    margin-left: 196px;
+    p {
+      font-size: 30px;
+    }
+  }
+  .loginbox {
+    width: 80%;
+    font-size: 25px;
+  }
+}
+.submittour{
+  margin-left: 40%;
+  width: 20%;
+}
+.edit {
+  margin-left: 32%;
+}
+.nothaCity {
+  margin-left: 45%;
+}
+.venueBlock {
+  h3 {
+    font-size: 40px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+}
+.btn {
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+.sglogo {
+  h6 {
+    text-align: center;
+  }
+  a {
+    margin-left: 27px;
+  }
+}
+
 //////////////////////////////////////////
 @media (min-width:1247px) and (max-width:1337px){
   .venDeets {
@@ -593,6 +637,9 @@
     img {
     //  margin: 0 0 0 100%;
     }
+  }
+  .submittour {
+    width: 31%;
   }
 }
 ///////////////////////////////////////////////////
