@@ -38,6 +38,8 @@
     height: 400px;
     font-size: 30px;
     margin-left: 27%; }
+    .paywall h1 {
+      font-size: 35px !important; }
   .wantdate {
     width: 50%;
     margin-left: 25%;

@@ -7,7 +7,9 @@
   <button class="btn btn-default x" ng-click="setPaywall(1)"><i class="fa fa-times"></i></button>
   {{day.med}}
   <h1 class="bookedshowinfo">{{day.show.displayName}}</h1>
-    <button class="wantdate btn btn-default" ng-show="askBook" type="button" name="book" ng-click="book(day)">Want this date?</button>
+  <div ng-show="askBook">
+    <button class="wantdate btn btn-default" ng-if="day.available != false" type="button" name="book" ng-click="book(day)">Want this date?</button>
+  </div>
 
     <p ng-show="booked" class="bookMessage">
       <span class="mess">{{message}}</span>
