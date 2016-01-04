@@ -1,8 +1,11 @@
 <div class="calendar">
   <section class="venDeets">
     <h2 class="calVen" ng-model="EController.venueName">Upcoming Events at {{venueName}}</h2>
-    <div class="xtraDeets">{{venAddress}}   |   {{venPhon}}</div>
-    <a class="xtraDeets" target="_blank" href="{{venSite}}">{{venSite}}</a>
+    <ul id="calInfo">
+      <li>{{venAddress}}</li>
+      <li>{{venPhon}}</li>
+      <li><a class="" target="_blank" href="{{venSite}}">{{venSite}}</a></li>
+    </ul>
     <div class="calsglogo">
         <h6 class="xtraDeets">Powered by Songkick</h6>
         <a target="_blank" href="http://www.songkick.com"><img src="assets/songkick.png" alt=""></a>

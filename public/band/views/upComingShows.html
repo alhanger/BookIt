@@ -19,8 +19,9 @@
       <button type="button" class="btn btn-default cancelRem" ng-click="uncancel()">Cancel</button>
     </div>
   </section>
-
-  <ul>
+  <button type="button" class="btn btn-default viewD" ng-show="deetsBtn" ng-click="venDeets = true; deetsBtn = false;">Details</button>
+  <button type="button" class="btn btn-default Dhide" ng-show="venDeets" ng-click="venDeets = false; deetsBtn = true;">Hide</button>
+  <ul ng-show="venDeets" class="upComingDeets">
     <li class="address">{{show.venueAddress}}</li>
     <li>{{show.venuePhoneNum}}</li>
     <li><a class="trueanchor" target="_blank" href="{{show.venueWebsite}}">{{show.venueWebsite}}</a></li>

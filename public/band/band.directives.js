@@ -18,7 +18,8 @@
           controller: function($scope, $state, $stateParams, BandService) {
 
             $scope.remove = true;
-
+            $scope.deetsBtn = true;
+            
             $scope.showSettings = function () {
               if ($scope.settings === false) {
                 $scope.settings = true;
