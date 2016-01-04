@@ -239,7 +239,7 @@ public class BookItController {
                                         .collect(Collectors.toCollection(ArrayList<Event>::new));
 
         if (dateCheck.size() != 0) {
-            Message dateConflict = new Message("You have already booked a show on this date.");
+            Message dateConflict = new Message(String.format("You have already scheduled a show for %s on this date.", band.name));
             return dateConflict;
         }
 
