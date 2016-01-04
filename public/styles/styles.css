@@ -359,7 +359,11 @@ form {
   border: 2px solid black; }
 
 #skl {
-  width: 2%; }
+  width: 5%;
+  margin-bottom: 15px; }
+
+.edit {
+  margin-bottom: 10px; }
 
 .showcontainer {
   overflow: scroll;
@@ -464,7 +468,8 @@ form {
   margin-right: 10%; }
 
 .viewD, .Dhide {
-  margin-left: 5px; }
+  margin-left: 5px;
+  margin-bottom: 10px; }
 
 .updateBand {
   height: auto;
@@ -624,6 +629,8 @@ form {
 
 .bookMessage {
   text-align: center; }
+  .bookMessage .mess {
+    color: black; }
 
 #calInfo li {
   display: block;
