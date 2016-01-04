@@ -7,19 +7,13 @@
   <button class="btn btn-default x" ng-click="setPaywall(1)"><i class="fa fa-times"></i></button>
   {{day.med}}
   <h1 class="bookedshowinfo">{{day.show.displayName}}</h1>
-    <button class="wantdate btn btn-default" ng-if="day.available != false" type="button" name="book" ng-click="book(day)">Want this date?</button>
+    <button class="wantdate btn btn-default" ng-show="askBook" type="button" name="book" ng-click="book(day)">Want this date?</button>
 
     <p ng-show="booked" class="bookMessage">
-      {{message}} <i class="fa fa-check"></i>
+      {{message}}
       <br />
       <button type="button" class="btn btn-default" ng-click="setPaywall(1)">Got it</button>
     </p>
-    <!-- <section ng-if="day.show">
-      <h4>Lineup</h4>
-      <hr>
-      <ul>
-        <li ng-repeat="artist in day.show.peformance">{{artist.displayName}}</li>
-      </ul>
-    </section> -->
+
     </button>
 </div>

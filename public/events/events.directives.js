@@ -13,6 +13,7 @@
 
           $scope.details = false;
 
+
           $scope.showDetails = function() {
             if ($scope.details === false) {
               $scope.details = true;
@@ -163,12 +164,14 @@
         templateUrl: 'events/views/dayBlock.html',
         transclude: true,
         controller: function($scope, EventsService, MainService, $stateParams) {
+          $scope.askBook = true;
+
           $scope.check = function(day) {
             $scope.day = day;
           };
 
           $scope.book = function (day) {
-            day.available = false;
+            $scope.askBook = false;
             var venId = $stateParams.venueId;
             EventsService.getVenDetails(venId).then(function(details) {
               var venDeets = details.data;

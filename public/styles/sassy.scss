@@ -517,8 +517,8 @@ form {
       }
 }
 .bandpic {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 200px;
   background-size: cover;
   border: 2px solid black;
@@ -533,6 +533,12 @@ form {
   overflow: scroll;
   height: 600px;
   margin-bottom: 50px;
+}
+.upComingDeets {
+  background-color: #adadad;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
 }
 .upcomingShow {
   box-shadow: 2px 2px 4px black;
@@ -560,7 +566,7 @@ form {
     font-size: 25px;
     color: black;
     text-align: center;
-    margin-left: 30%;
+    margin-left: 25%;
   }
   h5 {
     text-align: center;
@@ -623,29 +629,37 @@ form {
 }
 
 .upComingConfirm {
-  background-color: rgba(38, 149, 10, 0.93);
-  padding: 10px;
+  background-color: rgba(38, 149, 10, 0.84);
+  padding: 2px;
   border-radius: 5px;
   color: white ;
-  width: 30%;
+  width: 25%;
   float: right;
   text-align: center;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .upComingPending {
-  width: 30%;
+  width: 25%;
   float: right;
-  background-color: rgba(218, 179, 41, 0.93);
-  padding: 10px;
+  background-color: rgba(218, 179, 41, 0.87);
+  padding: 2px;
   border-radius: 5px;
   color: white ;
   text-align: center;
+  font-size: 15px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .confirmShow, .cancelshow {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.viewD, .Dhide {
+  margin-left: 32px;
 }
 
 /////////////////////////////////////// Update Band ///////////////////////////////////
@@ -740,6 +754,11 @@ form {
   border-radius: 5px;
   background-color: white;
   box-shadow: 2px 2px 4px black;
+  .details {
+    p {
+      font-size: 20px;
+    }
+  }
     .vInfo {
       display: inline-block;
         // h3 {
@@ -773,9 +792,15 @@ form {
   width: 200px;
   margin-left: 540px;
   margin-top: 50px;
-  margin-bottom: 30px;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 2px;
+  border-radius: 5px;
   box-shadow: 2px 2px 4px black;
-
+  background-color: #b6b6b6;
+  &:hover {
+    background-color: #e2e2e2;
+  }
 }
 
 .showform  {
@@ -823,7 +848,9 @@ form {
   }
 }
 .wantdate {
-  margin-left: 50px;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .blur{
@@ -861,6 +888,14 @@ form {
   text-align: center;
 }
 
+#calInfo {
+  li {
+    display: block;
+    list-style: none;
+
+  }
+}
+
 .calendar {
   width: 77%;
   margin: 20px 50px 20px 170px;
@@ -878,8 +913,8 @@ form {
   opacity: .8;
   margin-left: 0 auto;
   a {
-    margin-left: 20%;
     color: black;
+    text-align: center;
   }
 }
 #days {
@@ -899,12 +934,7 @@ form {
       width: 10%;
       float: right;
       text-align: center;
-      // background-color: white;
-      // height: 100px;
-      // border-radius: 5px;
-      margin-left: 48px;
-      margin-top: -151px;
-      margin-right: 32px;
+      margin: -190px 32px 15px 48px;
 
          img {
            width: 30%;
