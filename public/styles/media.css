@@ -21,6 +21,8 @@
 @media (min-width: 1700px) {
   .upComingConfirm, .upComingPending {
     font-size: 20px; }
+  .viewD, .Dhide {
+    margin-left: 32px; }
   .detailsbox {
     margin-left: 196px; }
     .detailsbox p {

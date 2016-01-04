@@ -565,8 +565,9 @@ form {
   h4 {
     font-size: 25px;
     color: black;
-    text-align: center;
+    width: 50%;
     margin-left: 25%;
+    text-align: center;
   }
   h5 {
     text-align: center;
@@ -574,7 +575,6 @@ form {
     font-size: 18px;
     text-shadow: 2px 2px 2px white;
   }
-
   .warningSection {
     border-radius: 10px;
     padding: 5px;
@@ -641,6 +641,7 @@ form {
 }
 
 .upComingPending {
+//  margin-bottom: 20px;
   width: 25%;
   float: right;
   background-color: rgba(218, 179, 41, 0.87);
@@ -659,7 +660,7 @@ form {
 }
 
 .viewD, .Dhide {
-  margin-left: 32px;
+  margin-left: 5px;
 }
 
 /////////////////////////////////////// Update Band ///////////////////////////////////
