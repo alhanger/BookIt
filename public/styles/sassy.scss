@@ -526,7 +526,11 @@ form {
 }
 
 #skl {
-  width: 2%;
+  width: 5%;
+  margin-bottom: 15px;
+}
+.edit {
+  margin-bottom: 10px;
 }
 
 .showcontainer {
@@ -661,6 +665,7 @@ form {
 
 .viewD, .Dhide {
   margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 /////////////////////////////////////// Update Band ///////////////////////////////////
@@ -887,6 +892,9 @@ form {
 
 .bookMessage {
   text-align: center;
+  .mess {
+    color: black;
+  }
 }
 
 #calInfo {

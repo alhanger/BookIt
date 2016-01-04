@@ -10,7 +10,7 @@
     <button class="wantdate btn btn-default" ng-show="askBook" type="button" name="book" ng-click="book(day)">Want this date?</button>
 
     <p ng-show="booked" class="bookMessage">
-      {{message}}
+      <span class="mess">{{message}}</span>
       <br />
       <button type="button" class="btn btn-default" ng-click="setPaywall(1)">Got it</button>
     </p>
