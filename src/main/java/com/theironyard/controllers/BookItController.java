@@ -33,7 +33,7 @@ public class BookItController {
     EventRepository events;
 
 
-    @RequestMapping("/login")
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public void login(HttpSession session, @RequestBody User params) throws Exception {
 
         User user = users.findOneByUsername(params.username);
@@ -63,7 +63,7 @@ public class BookItController {
         return user;
     }
 
-    @RequestMapping("/create-account")
+    @RequestMapping(path = "/create-account", method = RequestMethod.POST)
     public void createAccount(@RequestBody User user, HttpSession session) throws Exception {
         User userCheck = users.findOneByUsername(user.username);
 
