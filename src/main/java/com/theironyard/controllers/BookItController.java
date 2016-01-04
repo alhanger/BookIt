@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -32,7 +33,7 @@ public class BookItController {
     EventRepository events;
 
 
-    @RequestMapping("/login")
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
     public void login(HttpSession session, @RequestBody User params) throws Exception {
 
         User user = users.findOneByUsername(params.username);
@@ -62,7 +63,7 @@ public class BookItController {
         return user;
     }
 
-    @RequestMapping("/create-account")
+    @RequestMapping(path = "/create-account", method = RequestMethod.POST)
     public void createAccount(@RequestBody User user, HttpSession session) throws Exception {
         User userCheck = users.findOneByUsername(user.username);
 
@@ -158,7 +159,7 @@ public class BookItController {
     }
 
     @RequestMapping("/add-event/{bandId}")
-    public Message addEvent(@PathVariable("bandId") int id, @RequestBody Event event, HttpSession session) {
+    public Message addEvent(@PathVariable("bandId") int id, @RequestBody final Event event, HttpSession session) {
         Band band = bands.findOne(id); // <- band that you are trying to book a show for
         String username = (String) session.getAttribute("username");
         User user = users.findOneByUsername(username); // <- currently logged in user
@@ -230,10 +231,17 @@ public class BookItController {
             }
         }
 
-//        if (event.id != eventCheck.id) {
-//            Message booked = new Message(String.format("%s has already booked a show on this date.", band.name));
-//            return booked;
-//        }
+        // checks if the current band already has a show scheduled on this date
+        ArrayList<Event> dateCheck = band.events.stream()
+                                        .filter(e -> {
+                                            return e.date.equals(event.date);
+                                        })
+                                        .collect(Collectors.toCollection(ArrayList<Event>::new));
+
+        if (dateCheck.size() != 0) {
+            Message dateConflict = new Message("You have already booked a show on this date.");
+            return dateConflict;
+        }
 
         Event event2 = event;
         band.events.add(event2);
