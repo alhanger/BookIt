@@ -1,25 +1,17 @@
 
 <article class="upcomingShow {{show.isConfirmed}}" id="{{show.id}}">
-
-  <ul class='upcomingNav'>
-    <li>
-      <h4>{{show.venueName}}</h4>
-      <div class="confirm" ng-if="show.isConfirmed">
-        Show Confirmed  <i class="fa fa-check"></i>
-      </div>
-      <div class="pending" ng-if="show.isConfirmed === false">
-        Status Pending <i class="fa fa-hourglass-end"></i>
-      </div>
-    </li>
-    <!-- <li ng-click="showSettings()"><div><i class="fa fa-cog"></i></div></li> -->
-  </ul>
+  <div class="upComingConfirm" ng-if="show.isConfirmed">
+    Show Confirmed  <i class="fa fa-check"></i>
+  </div>
+  <div class="upComingPending" ng-if="show.isConfirmed === false">
+    Status Pending <i class="fa fa-hourglass-end"></i>
+  </div>
+  <h4>{{show.venueName}}</h4>
 
   <h5>{{show.date}}</h5>
   <section>
-    <ul class="upComingOpt">
-      <li><button type="button" class="btn btn-default ok confirmShow" ng-click="confirmShow(show)">Confirm Show</button></li>
-      <li><button ng-show="remove" type="button" class="cancelshow btn btn-default" ng-click="dangerZone()">Cancel Show</button></li>
-    </ul>
+    <button ng-if="show.isConfirmed === false" type="button" class="btn btn-default ok confirmShow" ng-click="confirmShow(show)">Confirm Show</button>
+    <button ng-show="remove" type="button" class="btn btn-default cancelshow" ng-click="dangerZone()">Cancel Show</button>
     <div ng-show="danger" class="warningSection">
       Are you sure you want to remove this show from your schedule? <br />
       <h6>Be sure to contact the venue for scheduling changes.</h6>
@@ -27,6 +19,7 @@
       <button type="button" class="btn btn-default cancelRem" ng-click="uncancel()">Cancel</button>
     </div>
   </section>
+
   <ul>
     <li class="address">{{show.venueAddress}}</li>
     <li>{{show.venuePhoneNum}}</li>

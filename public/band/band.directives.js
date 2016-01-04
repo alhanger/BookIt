@@ -32,7 +32,6 @@
             $scope.confirmShow = function (show) {
               show.isConfirmed = true;
               BandService.confirmShow(show);
-              console.log(show);
             };
 
             $scope.dangerZone = function() {
@@ -55,7 +54,7 @@
 
           },
           link: function(scope,el,attr) {
-            
+
           }
         };
       });

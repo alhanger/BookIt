@@ -24,7 +24,7 @@ form {
 }
 .btn {
   background-color: #cccccc;
-
+  border: 1px solid #555455;
 }
 .show {
   visibility:initial;
@@ -426,9 +426,8 @@ form {
 
 .bandShows {
   width: 50%;
-  margin: 100px 25px 10px 100px;
+  margin: 100px 3% 10px 3%;
   float: right;
-  // overflow: scroll;
   .banner {
     width: 80%;
     padding: 2px;
@@ -471,8 +470,8 @@ form {
   border-radius: 5px;
   opacity: .9;
   display: inline-block;
-    width: 30%;
-  margin: 30px 25px 10px 105px;
+  width: 30%;
+  margin: 30px 0 10px 12%;
   background-color: white;
   box-shadow: 2px 2px 4px black;
   padding: 5px;
@@ -496,9 +495,13 @@ form {
     p {
       color: black;
       text-align: center;
-
+      font-size: 1.2em;
     }
-
+    button {
+      width: 50%;
+      margin-left: 25%;
+      margin-right: 25%;
+    }
 
 
 }
@@ -541,21 +544,23 @@ form {
   a {
     color: black;
   }
-  li {
-    color: black;
+  ul {
+    list-style-type: none;
+    li {
+      color: black;
+      font-size: 1.4em;
+    }
   }
   section {
     width: 50%;
     margin: 0 auto;
   }
-  .confirmShow {
-    //margin-left: 22%;
-  }
 
   h4 {
     font-size: 25px;
     color: black;
-
+    text-align: center;
+    margin-left: 30%;
   }
   h5 {
     text-align: center;
@@ -617,44 +622,32 @@ form {
   }
 }
 
-.confirm {
+.upComingConfirm {
   background-color: rgba(38, 149, 10, 0.93);
   padding: 10px;
   border-radius: 5px;
   color: white ;
-  width: 100%;
+  width: 30%;
+  float: right;
+  text-align: center;
 }
 
-.pending {
+.upComingPending {
+  width: 30%;
+  float: right;
   background-color: rgba(218, 179, 41, 0.93);
   padding: 10px;
   border-radius: 5px;
   color: white ;
-
+  text-align: center;
 }
 
-.upcomingNav {
-  li {
-    display: inline-block;
-    &:nth-child(2) {
-      float: right;
-      font-size: 20px;
-      transition-duration: .2s;
-      &:hover {
-        color: #a24141;
-        font-size: 25px;
-        text-shadow: 1px 1px 2px black;
-      }
-    }
-  }
+.confirmShow, .cancelshow {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.upComingOpt {
-  li {
-    display: inline-block;
-    margin: 0 auto;
-  }
-}
 /////////////////////////////////////// Update Band ///////////////////////////////////
 
   .updateBand {
@@ -794,12 +787,12 @@ form {
 
 
 .paywall {
-  z-index: 1;
+    z-index: 1;
     background-color: white;
     box-shadow: 2px 2px 5px black;
     border-radius: 5px;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     position: absolute;
     display: inline-block;
     margin-left: 400px;
@@ -831,8 +824,6 @@ form {
 }
 .wantdate {
   margin-left: 50px;
-  margin-top: -106px;
-
 }
 
 .blur{

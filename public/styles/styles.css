@@ -12,7 +12,8 @@ form {
   font-size: 25px; }
 
 .btn {
-  background-color: #cccccc; }
+  background-color: #cccccc;
+  border: 1px solid #555455; }
 
 .show {
   visibility: initial; }
@@ -26,9 +27,9 @@ form {
     -webkit-transform: scale(1); } }
 
 .slide {
-  -webkit-animation: pop-in 0.3s;
-  -moz-animation: pop-in 0.3s;
-  -ms-animation: pop-in 0.3s; }
+  -webkit-animation: pop-in .3s;
+  -moz-animation: pop-in .3s;
+  -ms-animation: pop-in .3s; }
 
 .yourbands h2 {
   color: white;
@@ -281,7 +282,7 @@ form {
 
 .bandShows {
   width: 50%;
-  margin: 100px 25px 10px 100px;
+  margin: 100px 3% 10px 3%;
   float: right; }
   .bandShows .banner {
     width: 80%;
@@ -317,7 +318,7 @@ form {
   opacity: .9;
   display: inline-block;
   width: 30%;
-  margin: 30px 25px 10px 105px;
+  margin: 30px 0 10px 12%;
   background-color: white;
   box-shadow: 2px 2px 4px black;
   padding: 5px; }
@@ -335,7 +336,12 @@ form {
     text-align: center; }
   .detailsbox p {
     color: black;
-    text-align: center; }
+    text-align: center;
+    font-size: 1.2em; }
+  .detailsbox button {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%; }
 
 .pic {
   margin-top: 10px;
@@ -369,14 +375,19 @@ form {
   border-radius: 5px; }
   .upcomingShow a {
     color: black; }
-  .upcomingShow li {
-    color: black; }
+  .upcomingShow ul {
+    list-style-type: none; }
+    .upcomingShow ul li {
+      color: black;
+      font-size: 1.4em; }
   .upcomingShow section {
     width: 50%;
     margin: 0 auto; }
   .upcomingShow h4 {
     font-size: 25px;
-    color: black; }
+    color: black;
+    text-align: center;
+    margin-left: 30%; }
   .upcomingShow h5 {
     text-align: center;
     color: black;
@@ -418,33 +429,28 @@ form {
   .true .trueanchor {
     color: black; }
 
-.confirm {
+.upComingConfirm {
   background-color: rgba(38, 149, 10, 0.93);
   padding: 10px;
   border-radius: 5px;
   color: white;
-  width: 100%; }
+  width: 30%;
+  float: right;
+  text-align: center; }
 
-.pending {
+.upComingPending {
+  width: 30%;
+  float: right;
   background-color: rgba(218, 179, 41, 0.93);
   padding: 10px;
   border-radius: 5px;
-  color: white; }
+  color: white;
+  text-align: center; }
 
-.upcomingNav li {
-  display: inline-block; }
-  .upcomingNav li:nth-child(2) {
-    float: right;
-    font-size: 20px;
-    transition-duration: .2s; }
-    .upcomingNav li:nth-child(2):hover {
-      color: #a24141;
-      font-size: 25px;
-      text-shadow: 1px 1px 2px black; }
-
-.upComingOpt li {
-  display: inline-block;
-  margin: 0 auto; }
+.confirmShow, .cancelshow {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%; }
 
 .updateBand {
   height: auto;
@@ -533,8 +539,8 @@ form {
   background-color: white;
   box-shadow: 2px 2px 5px black;
   border-radius: 5px;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   display: inline-block;
   margin-left: 400px;
@@ -560,8 +566,7 @@ form {
     border: 1px solid white; }
 
 .wantdate {
-  margin-left: 50px;
-  margin-top: -106px; }
+  margin-left: 50px; }
 
 .blur {
   -webkit-filter: blur(5px);

@@ -168,6 +168,7 @@
           };
 
           $scope.book = function (day) {
+            day.available = false;
             var venId = $stateParams.venueId;
             EventsService.getVenDetails(venId).then(function(details) {
               var venDeets = details.data;
@@ -178,7 +179,7 @@
                 dateMonth: day.long.getMonth() + 1,
                 dateDay: day.long.getDate(),
                 venueName: $stateParams.venueName,
-                venueAddress: venDeets.street + ', ' + venDeets.city.state.displayName + ' ' + venDeets.zip,
+                venueAddress: venDeets.street + ' ' + venDeets.city.displayName + ', ' + venDeets.city.state.displayName + ' ' + venDeets.zip,
                 venuePhoneNum: venDeets.phone || 'no phone number available',
                 venueWebsite: venDeets.website || 'no website available',
                 venCapacity: venDeets.capacity || 'capacity info not available',
