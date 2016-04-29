@@ -1,6 +1,6 @@
-package com.theironyard.services;
+package com.theironyard.entity_repositories;
 
-import com.theironyard.entities.Event;
+import com.theironyard.events_core.model.Event;
 import org.springframework.data.repository.CrudRepository;
 
 

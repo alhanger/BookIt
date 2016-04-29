@@ -1,19 +1,21 @@
 package com.theironyard.controllers;
 
 
+import com.theironyard.bands_core.model.Band;
 import com.theironyard.entities.*;
-import com.theironyard.services.*;
+import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.EventRepository;
+import com.theironyard.entity_repositories.UserRepository;
+import com.theironyard.events_core.model.Event;
+import com.theironyard.users_core.model.User;
 import com.theironyard.utils.PasswordHash;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.convert.JodaTimeConverters;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 

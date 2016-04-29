@@ -1,6 +1,6 @@
-package com.theironyard.services;
+package com.theironyard.entity_repositories;
 
-import com.theironyard.entities.User;
+import com.theironyard.users_core.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

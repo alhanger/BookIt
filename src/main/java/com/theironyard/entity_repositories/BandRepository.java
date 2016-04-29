@@ -1,6 +1,6 @@
-package com.theironyard.services;
+package com.theironyard.entity_repositories;
 
-import com.theironyard.entities.Band;
+import com.theironyard.bands_core.model.Band;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

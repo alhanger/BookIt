@@ -1,6 +1,8 @@
-package com.theironyard.entities;
+package com.theironyard.bands_core.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.theironyard.events_core.model.Event;
+import com.theironyard.users_core.model.User;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -14,22 +16,16 @@ public class Band {
     @Id
     @GeneratedValue
     public int id;
-
     @Column(nullable = false)
     public String name;
-
     @Column(nullable = false)
     public String city;
-
     @Column(nullable = false)
     public String state;
-
     @Column(nullable = false)
     public String genre;
-
     @Column
     public String picURL;
-
     @ManyToOne
     public User user;
 

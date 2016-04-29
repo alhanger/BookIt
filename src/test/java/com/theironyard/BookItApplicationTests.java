@@ -1,10 +1,10 @@
 //package com.theironyard;
 //
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.theironyard.entities.Band;
-//import com.theironyard.entities.User;
-//import com.theironyard.services.BandRepository;
-//import com.theironyard.services.UserRepository;
+//import com.theironyard.bands_core.model.Band;
+//import com.theironyard.users_core.model.User;
+//import com.theironyard.service.entity_repositories.BandRepository;
+//import com.theironyard.service.entity_repositories.UserRepository;
 //import org.junit.Before;
 //import org.junit.BeforeClass;
 //import org.junit.Test;

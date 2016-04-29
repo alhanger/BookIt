@@ -1,11 +1,9 @@
-package com.theironyard.entities;
+package com.theironyard.events_core.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.theironyard.bands_core.model.Band;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -17,40 +15,28 @@ public class Event {
     @Id
     @GeneratedValue
     public int id;
-
     @Column(nullable = false)
     public String date;
-
     @Column
     public int dateYear;
-
     @Column
     public int dateMonth;
-
     @Column
     public int dateDay;
-
     @Column
     public String dateFormat;
-
     @Column(nullable = false)
     public String venueName;
-
     @Column
     public String venueAddress;
-
     @Column
     public String venuePhoneNum;
-
     @Column
     public String venueWebsite;
-
     @Column
     public int venueLong;
-
     @Column
     public int venueLat;
-
     @Column
     public boolean isConfirmed;
 
