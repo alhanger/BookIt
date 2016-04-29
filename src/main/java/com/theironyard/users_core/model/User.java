@@ -13,25 +13,21 @@ public class User {
     @GeneratedValue
     public int id;
     @Column(nullable = false)
-    public String username;
+    private String username;
     @Column(nullable = false)
-    public String password;
+    private String password;
     @Column(nullable = false)
-    public String firstName;
+    private String firstName;
     @Column(nullable = false)
-    public String lastName;
+    private String lastName;
     @Column(nullable = false)
-    public String city;
+    private String city;
     @Column(nullable = false)
-    public String state;
+    private String state;
     @Column(nullable = false)
-    public String email;
+    private String email;
     @Column(nullable = false)
-    public String phoneNum;
-
-    public String getUsername() {
-        return username;
-    }
+    private String phoneNum;
 
     public int getId() {
         return id;
@@ -39,6 +35,10 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
