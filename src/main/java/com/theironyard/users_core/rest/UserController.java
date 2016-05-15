@@ -3,6 +3,7 @@ package com.theironyard.users_core.rest;
 import com.theironyard.entity_repositories.BandRepository;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.users_core.model.User;
+import com.theironyard.users_core.model.UserResponse;
 import com.theironyard.users_core.service.UserService;
 import com.theironyard.utils.PasswordHash;
 import org.slf4j.Logger;
@@ -23,6 +24,9 @@ import javax.servlet.http.HttpSession;
 public class UserController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+    private final String SUCCESS_MESSAGE = "Success";
+    private final String SUCCESS_CODE = "200";
+
     private UserService userService;
     private UserRepository usersRepository;
     private BandRepository bandsRepository;
@@ -35,8 +39,8 @@ public class UserController {
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(HttpSession session,
-                      @RequestBody User params) throws Exception {
+    public UserResponse login(HttpSession session,
+                              @RequestBody User params) throws Exception {
         LOG.info("POST request to /users/login");
 
         User user = userService.getUser(params.getUsername());
@@ -50,17 +54,19 @@ public class UserController {
         }
 
         session.setAttribute("username", params.getUsername());
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, user);
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public void logout(HttpSession session) {
+    public UserResponse logout(HttpSession session) {
         LOG.info("POST request to /users/logout");
 
         session.invalidate();
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, null);
     }
 
     @RequestMapping(value = "/get-user", method = RequestMethod.GET)
-    public User getUser(HttpSession session) throws Exception {
+    public UserResponse getUser(HttpSession session) throws Exception {
         LOG.info("GET request to /users/get-user");
 
         String username = (String) session.getAttribute("username");
@@ -70,19 +76,20 @@ public class UserController {
             throw new Exception("Not logged in.");
         }
 
-        return user;
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, user);
     }
 
     @RequestMapping(path = "/create-account", method = RequestMethod.POST)
-    public void createAccount(HttpSession session,
+    public UserResponse createAccount(HttpSession session,
                               @RequestBody User user) throws Exception {
         LOG.info("POST request to /users/create-account");
 
         userService.createUser(user);
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, null);
     }
 
     @RequestMapping(path = "/edit-account", method = RequestMethod.POST)
-    public void editAccount(HttpSession session,
+    public UserResponse editAccount(HttpSession session,
                             @RequestBody User user) throws Exception {
         LOG.info("POST request to /users/edit-account");
 
@@ -90,10 +97,11 @@ public class UserController {
         User userCheck = userService.getUser(username);
 
         userService.modifyUser(userCheck);
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, user);
     }
 
     @RequestMapping(path = "/delete-account", method = RequestMethod.DELETE)
-    public void deleteAccount(HttpSession session,
+    public UserResponse deleteAccount(HttpSession session,
                               @RequestBody User user) throws Exception {
         LOG.info("DELETE request to /users/delete-account");
 
@@ -105,5 +113,6 @@ public class UserController {
         }
 
         userService.removeUser(userCheck);
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, null);
     }
 }

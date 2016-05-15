@@ -5,31 +5,31 @@ package com.theironyard.utils;
  */
 public class RestResponse {
 
-    private String SUCCESS_MESSAGE;
-    private String SUCCESS_CODE;
+    private String message;
+    private String code;
 
-    public RestResponse(String SUCCESS_MESSAGE, String SUCCESS_CODE) {
-        this.SUCCESS_MESSAGE = SUCCESS_MESSAGE;
-        this.SUCCESS_CODE = SUCCESS_CODE;
+    public RestResponse(String message, String code) {
+        this.message = message;
+        this.code = code;
     }
 
     public RestResponse() {
 
     }
 
-    public String getSUCCESS_MESSAGE() {
-        return SUCCESS_MESSAGE;
+    public String getMessage() {
+        return message;
     }
 
-    public void setSUCCESS_MESSAGE(String SUCCESS_MESSAGE) {
-        this.SUCCESS_MESSAGE = SUCCESS_MESSAGE;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public String getSUCCESS_CODE() {
-        return SUCCESS_CODE;
+    public String getCode() {
+        return code;
     }
 
-    public void setSUCCESS_CODE(String SUCCESS_CODE) {
-        this.SUCCESS_CODE = SUCCESS_CODE;
+    public void setCode(String code) {
+        this.code = code;
     }
 }
