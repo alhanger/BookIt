@@ -2,7 +2,7 @@ package com.theironyard.controllers;
 
 
 import com.theironyard.bands_core.model.Band;
-import com.theironyard.entities.*;
+import com.theironyard.entities.Message;
 import com.theironyard.entity_repositories.BandRepository;
 import com.theironyard.entity_repositories.EventRepository;
 import com.theironyard.entity_repositories.UserRepository;
@@ -16,7 +16,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -25,14 +28,18 @@ public class BookItController {
 
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
 
-    @Autowired
-    UserRepository users;
+    private UserRepository users;
+
+    private BandRepository bands;
+
+    private EventRepository events;
 
     @Autowired
-    BandRepository bands;
-
-    @Autowired
-    EventRepository events;
+    public BookItController(UserRepository userRepository, BandRepository bandRepository, EventRepository eventRepository) {
+        this.users = userRepository;
+        this.bands = bandRepository;
+        this.events = eventRepository;
+    }
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
