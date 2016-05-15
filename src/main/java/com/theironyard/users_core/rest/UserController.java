@@ -21,14 +21,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(path = "/users")
-public class UsersController {
+public class UserController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UsersController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
     private UserRepository usersRepository;
     private BandRepository bandsRepository;
 
     @Autowired
-    public UsersController(UserRepository usersRepository, BandRepository bandsRepository) {
+    public UserController(UserRepository usersRepository, BandRepository bandsRepository) {
         this.usersRepository = usersRepository;
         this.bandsRepository = bandsRepository;
     }
