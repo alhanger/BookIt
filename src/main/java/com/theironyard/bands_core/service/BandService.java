@@ -1,5 +1,6 @@
 package com.theironyard.bands_core.service;
 
+import com.theironyard.bands_core.model.Band;
 import com.theironyard.entity_repositories.BandRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,4 +21,7 @@ public class BandService {
     }
 
 
+    public void addBand(Band band) {
+
+    }
 }

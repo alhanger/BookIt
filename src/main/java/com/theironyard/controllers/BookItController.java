@@ -36,16 +36,17 @@ public class BookItController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public void login(HttpSession session, @RequestBody User params) throws Exception {
+    public void login(HttpSession session,
+                      @RequestBody User params) throws Exception {
 
-        User user = users.findOneByUsername(params.username);
+        User user = users.findOneByUsername(params.getUsername());
         if (user == null) {
             throw new Exception("User does not exists.");
-        } else if (!PasswordHash.validatePassword(params.password, user.password)) {
+        } else if (!PasswordHash.validatePassword(params.getPassword(), user.getPassword())) {
             throw new Exception("Wrong password.");
         }
 
-        session.setAttribute("username", params.username);
+        session.setAttribute("username", params.getUsername());
     }
 
     @RequestMapping("/logout")
@@ -66,13 +67,14 @@ public class BookItController {
     }
 
     @RequestMapping(path = "/create-account", method = RequestMethod.POST)
-    public void createAccount(@RequestBody User user, HttpSession session) throws Exception {
-        User userCheck = users.findOneByUsername(user.username);
+    public void createAccount(HttpSession session,
+                              @RequestBody User user) throws Exception {
+        User userCheck = users.findOneByUsername(user.getUsername());
 
         if (userCheck == null) {
-            user.password = PasswordHash.createHash(user.password);
+            user.setPassword(PasswordHash.createHash(user.getPassword()));
             users.save(user);
-            session.setAttribute("username", user.username);
+            session.setAttribute("username", user.getUsername());
         }
         else {
             throw new Exception("That username already exists.");
@@ -80,7 +82,8 @@ public class BookItController {
     }
 
     @RequestMapping("/edit-account")
-    public void editAccount(HttpSession session, @RequestBody User user) throws Exception {
+    public void editAccount(HttpSession session,
+                            @RequestBody User user) throws Exception {
         String name = (String) session.getAttribute("username");
         User userCheck = users.findOneByUsername(name);
 
@@ -88,24 +91,25 @@ public class BookItController {
             throw new Exception("Not logged in.");
         }
 
-        userCheck.username = user.username;
-        userCheck.password = PasswordHash.createHash(user.password);
-        userCheck.firstName = user.firstName;
-        userCheck.lastName = user.lastName;
-        userCheck.city = user.city;
-        userCheck.state = user.state;
-        userCheck.email = user.email;
-        userCheck.phoneNum = user.phoneNum;
+        userCheck.setUsername(user.getUsername());
+        userCheck.setPassword(user.getPassword());
+        userCheck.setFirstName(user.getFirstName());
+        userCheck.setLastName(user.getLastName());
+        userCheck.setCity(user.getCity());
+        userCheck.setState(user.getState());
+        userCheck.setEmail(user.getEmail());
+        userCheck.setPhoneNum(user.getPhoneNum());
 
         users.save(userCheck);
     }
 
     @RequestMapping("/delete-account")
-    public void deleteAccount(HttpSession session, @RequestBody User user) throws Exception {
+    public void deleteAccount(HttpSession session,
+                              @RequestBody User user) throws Exception {
         String username = (String) session.getAttribute("username");
         User userCheck = users.findOneByUsername(username);
 
-        if (!PasswordHash.validatePassword(user.password, userCheck.password)) {
+        if (!PasswordHash.validatePassword(user.getPassword(), userCheck.getPassword())) {
             throw new Exception("Incorrect password.");
         }
 
@@ -115,7 +119,8 @@ public class BookItController {
     }
 
     @RequestMapping("/create-band")
-    public void createBand(HttpSession session, @RequestBody Band band) throws Exception {
+    public void createBand(HttpSession session,
+                           @RequestBody Band band) throws Exception {
         String username = (String) session.getAttribute("username");
         User user = users.findOneByUsername(username);
 
@@ -161,7 +166,9 @@ public class BookItController {
     }
 
     @RequestMapping("/add-event/{bandId}")
-    public Message addEvent(@PathVariable("bandId") int id, @RequestBody final Event event, HttpSession session) {
+    public Message addEvent(@PathVariable("bandId") int id,
+                            @RequestBody final Event event,
+                            HttpSession session) {
         Band band = bands.findOne(id); // <- band that you are trying to book a show for
         String username = (String) session.getAttribute("username");
         User user = users.findOneByUsername(username); // <- currently logged in user
@@ -190,10 +197,10 @@ public class BookItController {
                     if (eventCheck.isConfirmed == true) {
                         Message differentUserBandConfirmed = new Message(String.format("This date has already been confirmed by %s, but not updated by the venue. Contact %s %s at %s or %s for more details.",
                                 bandCheck.name,
-                                userCheck.firstName,
-                                userCheck.lastName,
-                                userCheck.phoneNum,
-                                userCheck.email));
+                                userCheck.getFirstName(),
+                                userCheck.getLastName(),
+                                userCheck.getPhoneNum(),
+                                userCheck.getEmail()));
                         return differentUserBandConfirmed;
                     }
                     // another band is interested in the same date but has not confirmed
@@ -266,7 +273,8 @@ public class BookItController {
     }
 
     @RequestMapping("/edit-event/{eventId}")
-    public void editEvent(@PathVariable("eventId") int eventId, @RequestBody Event event) {
+    public void editEvent(@PathVariable("eventId") int eventId,
+                          @RequestBody Event event) {
         Event event2 = events.findOne(eventId);
 
         event2.date = event.date;
