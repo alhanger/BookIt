@@ -20,6 +20,7 @@ import java.util.List;
  * Created by ahanger on 4/28/2016.
  */
 @RestController
+@RequestMapping(path = "/users")
 public class UsersController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UsersController.class);
@@ -37,8 +38,10 @@ public class UsersController {
 
         User user = usersRepository.findOneByUsername(params.getUsername());
         if (user == null) {
+            LOG.info("User does not exists");
             throw new Exception("User does not exists.");
         } else if (!PasswordHash.validatePassword(params.getPassword(), user.getPassword())) {
+            LOG.info("Wrong password.");
             throw new Exception("Wrong password.");
         }
 
@@ -90,7 +93,7 @@ public class UsersController {
         userCheck.setFirstName(user.getFirstName());
         userCheck.setLastName(user.getLastName());
         userCheck.setCity(user.getCity());
-        user.setState(user.getState());
+        userCheck.setState(user.getState());
         userCheck.setEmail(user.getEmail());
         userCheck.setPhoneNum(user.getPhoneNum());
 
