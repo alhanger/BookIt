@@ -29,9 +29,7 @@ public class BookItController {
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
 
     private UserRepository users;
-
     private BandRepository bands;
-
     private EventRepository events;
 
     @Autowired
