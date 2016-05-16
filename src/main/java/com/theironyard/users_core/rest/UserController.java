@@ -38,23 +38,24 @@ public class UserController {
         this.bandsRepository = bandsRepository;
     }
 
+    //TODO refactor to use better logic
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public UserResponse login(HttpSession session,
-                              @RequestBody User params) throws Exception {
+                              @RequestBody User user) throws Exception {
         LOG.info("POST request to /users/login");
 
-        User user = userService.getUserByUsername(params.getUsername());
+        User userCheck = userService.getUserByUsername(user.getUsername());
 
-        if (user == null) {
+        if (userCheck == null) {
             LOG.info("User does not exists");
             throw new Exception("User does not exists.");
-        } else if (!PasswordHash.validatePassword(params.getPassword(), user.getPassword())) {
+        } else if (!PasswordHash.validatePassword(user.getPassword(), userCheck.getPassword())) {
             LOG.info("Wrong password.");
             throw new Exception("Wrong password.");
         }
 
-        session.setAttribute("username", params.getUsername());
-        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, user);
+        session.setAttribute("username", user.getUsername());
+        return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, userCheck);
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
