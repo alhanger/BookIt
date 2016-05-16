@@ -1,7 +1,12 @@
 package com.theironyard.ServiceTests;
 
 import com.theironyard.TestApplication;
+import com.theironyard.entity_repositories.UserRepository;
+import com.theironyard.users_core.model.User;
 import com.theironyard.users_core.service.UserService;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,15 +24,34 @@ import org.springframework.test.context.web.WebAppConfiguration;
 public class UserServiceTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserServiceTest.class);
-    private final String SUCCESS_MESSAGE = "Success";
-    private final String SUCCESS_CODE = "200";
-
-    private UserService userService;
 
     @Autowired
-    public UserServiceTest(UserService userService) {
-        this.userService = userService;
+    private UserService userService;
+    @Autowired
+    private UserRepository userRepository;
+
+
+    @Before
+    public void init() {
+        userRepository.deleteAll();
     }
 
+    @Test
+    public void testCreateUser() throws Exception {
+        User user = new User();
+        user.setUsername("testUsername");
+        user.setPassword("testPassword");
+        user.setFirstName("testFirstName");
+        user.setLastName("testLastName");
+        user.setCity("testCity");
+        user.setState("testState");
+        user.setEmail("testEmail");
+        user.setPhoneNum("testPhoneNum");
+        userRepository.save(user);
 
+        User userCheck = userService.getUser(user.getUsername());
+
+        Assert.assertNotNull(userCheck);
+        Assert.assertNotNull(userCheck.getId());
+    }
 }

@@ -92,7 +92,7 @@ public class BookItController {
         String name = (String) session.getAttribute("username");
         User userCheck = users.findOneByUsername(name);
 
-        if (userCheck == null && userCheck.id != user.id) {
+        if (userCheck == null && userCheck.getId() != user.getId()) {
             throw new Exception("Not logged in.");
         }
 
@@ -118,7 +118,7 @@ public class BookItController {
             throw new Exception("Incorrect password.");
         }
 
-        List<Band> userBand = bands.findAllByUserId(userCheck.id);
+        List<Band> userBand = bands.findAllByUserId(userCheck.getId());
         bands.delete(userBand);
         users.delete(user);
     }
