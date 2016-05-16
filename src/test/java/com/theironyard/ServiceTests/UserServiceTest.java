@@ -73,6 +73,14 @@ public class UserServiceTest {
         Assert.assertEquals(testModify.getPhoneNum(), testUser.getPhoneNum());
     }
 
+    @Test
+    public void testRemoveUser() throws Exception {
+        User user = createTestUser();
+        userService.removeUser(user);
+
+        Assert.assertNull(userService.getUserById(user.getId()));
+    }
+
     public User createTestUser() {
         User user = new User();
         user.setUsername("testUsername");
