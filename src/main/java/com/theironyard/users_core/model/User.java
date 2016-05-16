@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue
-    private int id;
+    private String id;
     @Column(nullable = false)
     private String username;
     @Column(nullable = false)
@@ -29,11 +29,11 @@ public class User {
     @Column(nullable = false)
     private String phoneNum;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

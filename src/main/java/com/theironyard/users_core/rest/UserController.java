@@ -43,7 +43,7 @@ public class UserController {
                               @RequestBody User params) throws Exception {
         LOG.info("POST request to /users/login");
 
-        User user = userService.getUser(params.getUsername());
+        User user = userService.getUserByUsername(params.getUsername());
 
         if (user == null) {
             LOG.info("User does not exists");
@@ -70,7 +70,7 @@ public class UserController {
         LOG.info("GET request to /users/get-user");
 
         String username = (String) session.getAttribute("username");
-        User user = userService.getUser(username);
+        User user = userService.getUserByUsername(username);
 
         if (user == null) {
             throw new Exception("Not logged in.");
@@ -94,7 +94,7 @@ public class UserController {
         LOG.info("POST request to /users/edit-account");
 
         String username = (String) session.getAttribute("username");
-        User userCheck = userService.getUser(username);
+        User userCheck = userService.getUserByUsername(username);
 
         userService.modifyUser(userCheck);
         return new UserResponse(SUCCESS_MESSAGE, SUCCESS_CODE, user);

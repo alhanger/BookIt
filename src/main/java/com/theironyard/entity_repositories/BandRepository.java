@@ -9,6 +9,6 @@ import java.util.List;
  * Created by alhanger on 12/8/15.
  */
 public interface BandRepository extends CrudRepository<Band, Integer> {
-    List<Band> findAllByUserId(int id);
+    List<Band> findAllByUserId(String id);
     Band findByEventsId(int id);
 }

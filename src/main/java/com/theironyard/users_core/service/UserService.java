@@ -31,7 +31,7 @@ public class UserService {
         this.bandRepository = bandRepository;
     }
 
-    public User getUser(String username) {
+    public User getUserByUsername(String username) {
         LOG.info("Looking for user with username: " + username);
         User user = userRepository.findOneByUsername(username);
 
@@ -42,9 +42,20 @@ public class UserService {
         return user;
     }
 
+    public User getUserById(String id) {
+        LOG.info("Looking for user with id: " + id);
+        User user = userRepository.findOneById(id);
+
+        if(user == null) {
+            LOG.info("User not found");
+        }
+
+        return user;
+    }
+
     public User createUser(User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
         LOG.info("Searching for account: " + user.getId());
-        User userCheck = userRepository.findOneByUsername(user.getUsername());
+        User userCheck = userRepository.findOneById(user.getId());
 
         if (userCheck == null) {
             LOG.info("Creating user");
@@ -56,7 +67,7 @@ public class UserService {
     }
 
     public User modifyUser(User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
-        User userCheck = userRepository.findOneByUsername(user.getUsername());
+        User userCheck = userRepository.findOneById(user.getId());
         userCheck.setUsername(user.getUsername());
         userCheck.setPassword(PasswordHash.createHash(user.getPassword()));
         userCheck.setFirstName(user.getFirstName());
@@ -69,7 +80,7 @@ public class UserService {
         LOG.info("Account " + user.getId() + " account has been updated");
         userRepository.save(userCheck);
 
-        return userCheck;
+        return userRepository.findOneByUsername(userCheck.getUsername());
     }
 
     public void removeUser(User user) {

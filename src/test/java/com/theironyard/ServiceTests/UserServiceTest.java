@@ -49,9 +49,42 @@ public class UserServiceTest {
         user.setPhoneNum("testPhoneNum");
         userRepository.save(user);
 
-        User userCheck = userService.getUser(user.getUsername());
+        User userCheck = userService.getUserByUsername(user.getUsername());
 
         Assert.assertNotNull(userCheck);
         Assert.assertNotNull(userCheck.getId());
+    }
+
+    @Test
+    public void testModifyUser() throws Exception {
+        User testModify = createTestUser();
+        User testUser = createTestUser();
+        testModify.setUsername("modifyUsername");
+        testModify.setPhoneNum("modifyPhoneNum");
+        testModify.setState("modifyState");
+        testModify.setEmail("modifyEmail");
+
+        Assert.assertNotNull(testModify.getUsername(), testUser.getUsername());
+        Assert.assertNotEquals(testModify.getPhoneNum(), testUser.getPhoneNum());
+
+        testUser = userService.modifyUser(testModify);
+
+        Assert.assertEquals(testModify.getUsername(), testUser.getUsername());
+        Assert.assertEquals(testModify.getPhoneNum(), testUser.getPhoneNum());
+    }
+
+    public User createTestUser() {
+        User user = new User();
+        user.setUsername("testUsername");
+        user.setPassword("testPassword");
+        user.setFirstName("testFirstName");
+        user.setLastName("testLastName");
+        user.setCity("testCity");
+        user.setState("testState");
+        user.setEmail("testEmail");
+        user.setPhoneNum("testPhoneNum");
+        userRepository.save(user);
+
+        return userService.getUserById(user.getId());
     }
 }

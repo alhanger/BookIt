@@ -161,7 +161,7 @@ public class BookItController {
     }
 
     @RequestMapping("/get-bands/{id}")
-    public List<Band> getBands(@PathVariable("id") int id) {
+    public List<Band> getBands(@PathVariable("id") String id) {
         return bands.findAllByUserId(id);
     }
 
