@@ -8,6 +8,7 @@ import com.theironyard.utils.PasswordHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -16,6 +17,7 @@ import java.util.List;
 /**
  * Created by ahanger on 4/28/2016.
  */
+@Service
 public class UserService {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
