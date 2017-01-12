@@ -2,6 +2,8 @@ package com.theironyard.users_core.model;
 
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by alhanger on 12/8/15.
@@ -20,6 +22,8 @@ public class User {
     private String firstName;
     @Column(nullable = false)
     private String lastName;
+    @Column
+    private List<Map<String, String>> addresses;
     @Column(nullable = false)
     private String city;
     @Column(nullable = false)
@@ -28,6 +32,8 @@ public class User {
     private String email;
     @Column(nullable = false)
     private String phoneNum;
+    @Column
+    private List<Map<String, String>> phoneNumbers;
 
     public String getId() {
         return id;
@@ -99,5 +105,21 @@ public class User {
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+
+    public List<Map<String, String>> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Map<String, String>> addresses) {
+        this.addresses = addresses;
+    }
+
+    public List<Map<String, String>> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(List<Map<String, String>> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 }

@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private UserRepository userRepository;
     private BandRepository bandRepository;
@@ -32,33 +32,33 @@ public class UserService {
     }
 
     public User getUserByUsername(String username) {
-        LOG.info("Looking for user with username: " + username);
+        log.info("Looking for user with username: " + username);
         User user = userRepository.findOneByUsername(username);
 
         if(user == null) {
-            LOG.info("User not found");
+            log.info("User not found");
         }
 
         return user;
     }
 
     public User getUserById(String id) {
-        LOG.info("Looking for user with id: " + id);
+        log.info("Looking for user with id: " + id);
         User user = userRepository.findOneById(id);
 
         if(user == null) {
-            LOG.info("User not found");
+            log.info("User not found");
         }
 
         return user;
     }
 
     public User createUser(User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
-        LOG.info("Searching for account: " + user.getId());
+        log.info("Searching for account: " + user.getId());
         User userCheck = userRepository.findOneById(user.getId());
 
         if (userCheck == null) {
-            LOG.info("Creating user");
+            log.info("Creating user");
             user.setPassword(PasswordHash.createHash(user.getPassword()));
             userRepository.save(user);
         }
@@ -77,7 +77,7 @@ public class UserService {
         userCheck.setEmail(user.getEmail());
         userCheck.setPhoneNum(user.getPhoneNum());
 
-        LOG.info("Account " + user.getId() + " account has been updated");
+        log.info("Account " + user.getId() + " account has been updated");
         userRepository.save(userCheck);
 
         return userRepository.findOneByUsername(userCheck.getUsername());
@@ -89,6 +89,6 @@ public class UserService {
         bandRepository.delete(bands);
         userRepository.delete(userCheck);
 
-        LOG.info("Account " + user.getId() + " has been deleted from the data store");
+        log.info("Account " + user.getId() + " has been deleted from the data store");
     }
 }

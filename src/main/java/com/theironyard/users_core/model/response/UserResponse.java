@@ -1,5 +1,6 @@
-package com.theironyard.users_core.model;
+package com.theironyard.users_core.model.response;
 
+import com.theironyard.users_core.model.User;
 import com.theironyard.utils.RestResponse;
 
 /**
