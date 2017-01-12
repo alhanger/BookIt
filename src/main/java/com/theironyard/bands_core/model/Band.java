@@ -41,6 +41,10 @@ public class Band {
     @JsonIgnore
     public Collection<Event> events;
 
+    public Band() {
+
+    }
+
     public int getId() {
         return id;
     }

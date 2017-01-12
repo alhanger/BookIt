@@ -26,4 +26,24 @@ public class BandService {
     public void addBand(Band band) {
 
     }
+
+    public Band getBandByName(String bandName) {
+
+        return new Band();
+    }
+
+    public Band getBandById (String bandId) {
+
+        return new Band();
+    }
+
+    public Band modifyBand(Band band) {
+
+
+        return new Band();
+    }
+
+    public void deleteBand(String bandId) {
+
+    }
 }
