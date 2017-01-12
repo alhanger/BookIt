@@ -3,7 +3,7 @@ package com.theironyard.controllers;
 
 import com.theironyard.bands_core.model.Band;
 import com.theironyard.entities.Message;
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import com.theironyard.entity_repositories.EventRepository;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.events_core.model.Event;
@@ -29,13 +29,13 @@ public class BookItController {
     public final String API_KEY = "YlX4r2ab8xzzlYDB";
 
     private UserRepository users;
-    private BandRepository bands;
+    private BandDao bands;
     private EventRepository events;
 
     @Autowired
-    public BookItController(UserRepository userRepository, BandRepository bandRepository, EventRepository eventRepository) {
+    public BookItController(UserRepository userRepository, BandDao bandDao, EventRepository eventRepository) {
         this.users = userRepository;
-        this.bands = bandRepository;
+        this.bands = bandDao;
         this.events = eventRepository;
     }
 

@@ -2,7 +2,7 @@ package com.theironyard.events_core.service;
 
 import com.theironyard.bands_core.model.Band;
 import com.theironyard.entities.Message;
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import com.theironyard.entity_repositories.EventRepository;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.events_core.model.Event;
@@ -36,11 +36,11 @@ public class EventService {
     private final String API_KEY = "YlX4r2ab8xzzlYDB";
 
     private EventRepository events;
-    private BandRepository bands;
+    private BandDao bands;
     private UserRepository users;
 
     @Autowired
-    public EventService(EventRepository events, BandRepository bands, UserRepository users) {
+    public EventService(EventRepository events, BandDao bands, UserRepository users) {
         this.events = events;
         this.bands = bands;
         this.users = users;

@@ -1,7 +1,7 @@
 package com.theironyard.ControllerTests;
 
 import com.theironyard.TestApplication;
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.users_core.model.User;
 import com.theironyard.users_core.rest.UserController;
@@ -36,15 +36,15 @@ public class UserControllerTest {
     protected MockMvc mockMvc;
     protected UserController userController;
     protected UserService userService;
-    protected BandRepository bandRepository;
+    protected BandDao bandDao;
     protected UserRepository userRepository;
 
     @Autowired
-    public UserControllerTest(MockMvc mockMvc, UserController userController, UserService userService, BandRepository bandRepository, UserRepository userRepository) {
+    public UserControllerTest(MockMvc mockMvc, UserController userController, UserService userService, BandDao bandDao, UserRepository userRepository) {
         this.mockMvc = mockMvc;
         this.userController = userController;
         this.userService = userService;
-        this.bandRepository = bandRepository;
+        this.bandDao = bandDao;
         this.userRepository = userRepository;
     }
 

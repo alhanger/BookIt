@@ -1,6 +1,6 @@
 package com.theironyard.users_core.rest;
 
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.users_core.model.User;
 import com.theironyard.users_core.model.response.UserResponse;
@@ -29,10 +29,10 @@ public class UserController {
 
     private UserService userService;
     private UserRepository usersRepository;
-    private BandRepository bandsRepository;
+    private BandDao bandsRepository;
 
     @Autowired
-    public UserController(UserService userService, UserRepository usersRepository, BandRepository bandsRepository) {
+    public UserController(UserService userService, UserRepository usersRepository, BandDao bandsRepository) {
         this.userService = userService;
         this.usersRepository = usersRepository;
         this.bandsRepository = bandsRepository;

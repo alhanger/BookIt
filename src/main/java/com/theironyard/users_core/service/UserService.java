@@ -1,7 +1,7 @@
 package com.theironyard.users_core.service;
 
 import com.theironyard.bands_core.model.Band;
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import com.theironyard.entity_repositories.UserRepository;
 import com.theironyard.users_core.model.User;
 import com.theironyard.utils.PasswordHash;
@@ -23,12 +23,12 @@ public class UserService {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private UserRepository userRepository;
-    private BandRepository bandRepository;
+    private BandDao bandDao;
 
     @Autowired
-    public UserService(UserRepository userRepository, BandRepository bandRepository) {
+    public UserService(UserRepository userRepository, BandDao bandDao) {
         this.userRepository = userRepository;
-        this.bandRepository = bandRepository;
+        this.bandDao = bandDao;
     }
 
     public User getUserByUsername(String username) {
@@ -66,6 +66,8 @@ public class UserService {
         return user;
     }
 
+    //TODO: add methods for handling passwords
+
     public User modifyUser(User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
         User userCheck = userRepository.findOneById(user.getId());
         userCheck.setUsername(user.getUsername());
@@ -85,8 +87,8 @@ public class UserService {
 
     public void removeUser(User user) {
         User userCheck = userRepository.findOneByUsername(user.getUsername());
-        List<Band> bands = bandRepository.findAllByUserId(user.getId());
-        bandRepository.delete(bands);
+        List<Band> bands = bandDao.findAllByUserId(user.getId());
+        bandDao.delete(bands);
         userRepository.delete(userCheck);
 
         log.info("Account " + user.getId() + " has been deleted from the data store");

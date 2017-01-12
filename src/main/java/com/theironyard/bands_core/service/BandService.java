@@ -1,7 +1,7 @@
 package com.theironyard.bands_core.service;
 
 import com.theironyard.bands_core.model.Band;
-import com.theironyard.entity_repositories.BandRepository;
+import com.theironyard.entity_repositories.BandDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,35 +15,40 @@ public class BandService {
 
     private static final Logger LOG = LoggerFactory.getLogger(BandService.class);
 
-    private BandRepository bandRepository;
+    private BandDao bandDao;
 
     @Autowired
-    public BandService(BandRepository bandRepository) {
-        this.bandRepository = bandRepository;
+    public BandService(BandDao bandDao) {
+        this.bandDao = bandDao;
     }
 
 
     public void addBand(Band band) {
-
+        bandDao.save(band);
     }
 
-    public Band getBandByName(String bandName) {
-
-        return new Band();
+    public Band getBandByName(String name) {
+        return bandDao.findOneByName(name);
     }
 
-    public Band getBandById (String bandId) {
-
-        return new Band();
+    public Band getBandById (int id) {
+        return bandDao.findOneById(id);
     }
 
     public Band modifyBand(Band band) {
+        Band bandCheck = getBandById(band.getId());
+        bandCheck.setName(band.getName());
+        bandCheck.setCity(band.getCity());
+        bandCheck.setState(band.getState());
+        bandCheck.setGenre(band.getGenre());
+        bandCheck.setUser(band.getUser());
 
-
-        return new Band();
+        bandDao.save(bandCheck);
+        return bandCheck;
     }
 
-    public void deleteBand(String bandId) {
-
+    public void deleteBand(int bandId) {
+        Band band = getBandById(bandId);
+        bandDao.delete(band);
     }
 }

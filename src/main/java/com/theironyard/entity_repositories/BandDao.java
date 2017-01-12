@@ -8,7 +8,14 @@ import java.util.List;
 /**
  * Created by alhanger on 12/8/15.
  */
-public interface BandRepository extends CrudRepository<Band, Integer> {
+public interface BandDao extends CrudRepository<Band, Integer> {
+
     List<Band> findAllByUserId(String id);
+
     Band findByEventsId(int id);
+
+    Band findOneById(int id);
+
+    Band findOneByName(String Name);
+
 }
