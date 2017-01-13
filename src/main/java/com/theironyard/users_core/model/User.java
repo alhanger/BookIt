@@ -11,8 +11,9 @@ import java.util.Map;
 @Entity
 @Table (name = "users")
 public class User {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     @Column(nullable = false)
     private String username;
